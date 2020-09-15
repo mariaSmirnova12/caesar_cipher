@@ -1,15 +1,13 @@
-package vigenere;
+package caesarcipher;
 
-import caesarcipher.CaesarCipher;
-
-public class CaesarCracker {
+public class CaesarBreaker {
     char mostCommon;
     
-    public CaesarCracker() {
+    public CaesarBreaker() {
         mostCommon = 'e';
     }
     
-    public CaesarCracker(char c) {
+    public CaesarBreaker(char c) {
         mostCommon = c;
     }
     
@@ -51,6 +49,25 @@ public class CaesarCracker {
         CaesarCipher cc = new CaesarCipher(key);
         return cc.decrypt(encrypted);
         
+    }
+
+    public String halfOfString(String message, int start){
+        StringBuilder halfStr = new StringBuilder();
+        for(int i=start; i < message.length(); i+=2){
+            halfStr.append(message.charAt(i));
+        }
+        return halfStr.toString();
+    }
+
+    public String breakCaesarCipherTwoKeys(String input){
+        String str1 = halfOfString(input, 0);
+        String str2 = halfOfString(input, 1);
+        int key1 = getKey(str1);
+        int key2 = getKey(str2);
+        CaesarCipherTwoKeys cc = new CaesarCipherTwoKeys(key1,key2);
+        String result = cc.decrypt(input);
+        System.out.println(result);
+        return result;
     }
    
 }

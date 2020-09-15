@@ -1,6 +1,5 @@
-import caesarcipher.CaesarCipherBreaker;
 import org.junit.Test;
-import vigenere.CaesarCracker;
+import caesarcipher.CaesarBreaker;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -27,7 +26,7 @@ public class CaesarCipherBreakerTester {
         try {
             String message = readMessageFromFile(fileName);
             System.out.println("message: "+message);
-            CaesarCracker ccr = new CaesarCracker();
+            CaesarBreaker ccr = new CaesarBreaker();
             String decryptedMessage = ccr.decrypt(message);
             System.out.println("decrypted message: "+decryptedMessage);
             String messageDecr = readMessageFromFile(fileNameDecr);
@@ -40,8 +39,10 @@ public class CaesarCipherBreakerTester {
     @Test
     public void testCipherBreak() {
         String input = "aMtmKb mfxmZqmvKM";
-        CaesarCipherBreaker cc = new CaesarCipherBreaker();
-        String decrypted = cc.breakCaesarCipher(input);
+        //CaesarCipherBreaker cc = new CaesarCipherBreaker();
+        CaesarBreaker cc = new CaesarBreaker();
+        //String decrypted = cc.breakCaesarCipher(input);
+        String decrypted = cc.decrypt(input);
         System.out.println("encrypted string is "+decrypted);
         assertEquals("decrypted message ", decrypted, "sEleCt expeRienCE");
     }
@@ -49,7 +50,9 @@ public class CaesarCipherBreakerTester {
     @Test
     public void testCipherTwoKeysBreak() {
         String input = "Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!";
-        CaesarCipherBreaker cc = new CaesarCipherBreaker();
+        //CaesarCipherBreaker cc = new CaesarCipherBreaker();
+        CaesarBreaker cc = new CaesarBreaker();
+       // String decrypted = cc.breakCaesarCipherTwoKeys(input);
         String decrypted = cc.breakCaesarCipherTwoKeys(input);
         System.out.println("encrypted string is "+decrypted);
         assertEquals("decrypted is correct", decrypted, "The name of the Java Mascot is Duke. Woeoeee!");
@@ -61,7 +64,7 @@ public class CaesarCipherBreakerTester {
         try {
             String message = readMessageFromFile(fileName);
             System.out.println("message: "+message);
-            CaesarCracker ccr = new CaesarCracker('a');
+            CaesarBreaker ccr = new CaesarBreaker('a');
             String decrypted = ccr.decrypt(message);
             System.out.println("decrypted message: "+decrypted);
             assertTrue("decrypted in Portuguese", decrypted.contains("da ocidental praia lusitana"));

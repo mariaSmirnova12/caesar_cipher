@@ -1,7 +1,6 @@
 package vigenere;
 
 import caesarcipher.CaesarCipher;
-
 import java.util.*;
 
 public class VigenereCipher {

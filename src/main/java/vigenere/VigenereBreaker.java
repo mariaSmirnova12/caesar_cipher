@@ -1,5 +1,6 @@
 package vigenere;
 
+import caesarcipher.CaesarBreaker;
 import java.io.*;
 import java.util.*;
 
@@ -18,7 +19,7 @@ public class VigenereBreaker {
         int[] key = new int[klength];
         for(int i = 0; i<klength; i++){
           String str = sliceString(encrypted, i, klength);
-          CaesarCracker cc = new CaesarCracker(mostCommon);
+          CaesarBreaker cc = new CaesarBreaker(mostCommon);
           key[i] = cc.getKey(str);
         }
         return key;
