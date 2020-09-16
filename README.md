@@ -1,6 +1,6 @@
 Java Programming: Arrays, Lists, and Structured Data
 
-Course  **OJava Programming: Arrays, Lists, and Structured Data**  by University of Duke University https://www.coursera.org/learn/java-programming-arrays-lists-data/
+Course  **Java Programming: Arrays, Lists, and Structured Data**  by University of Duke University https://www.coursera.org/learn/java-programming-arrays-lists-data/
 
 Course certificate:
 https://www.coursera.org/account/accomplishments/verify/SVEBRV4R9GDG
